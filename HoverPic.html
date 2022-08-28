@@ -1,0 +1,93 @@
+<html>
+
+    <head>
+         <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free Web tutorials">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1053247524033816"
+     crossorigin="anonymous"></script>
+
+     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+
+        <title>Free Image Hover Effects</title>
+    
+    </head>
+
+    <body>
+
+        <h1>Free Image Hover Effects</h1>
+
+        <diV id="imageDiv" class="flex-container">
+            <img width="200px" id="MyImage" 
+            onmouseover="hoverImage('MyImage',
+            'https://www.balisafarimarinepark.com/wp-content/uploads/2022/06/112991633508_2000x.jpg',
+            'https://www.rainforest-alliance.org/wp-content/uploads/2021/06/green-sea-turtle-1.jpg.optimal.jpg')" 
+           
+            src="https://www.rainforest-alliance.org/wp-content/uploads/2021/06/green-sea-turtle-1.jpg.optimal.jpg">
+        </diV>
+
+        <div id="clickableStuff" class="flex-container">
+            <input type="button" onclick="show('imageDiv')" value="Show"/>  
+        </div>
+       
+    
+        <script>
+
+            function show(divIdToHide){
+                var currentElement = document.getElementById(divIdToHide);
+                if(currentElement.style.display=='none'){
+                    //then show the DIV
+                    currentElement.style.display='block';
+                }
+
+                else{
+                    currentElement.style.display='none';
+                }
+            }
+
+
+
+            function hoverImage(imageID, newImage, originalImage)
+            {
+                //JavaScript Vanilla
+                // document.getElementById(imageID).src=newImage;
+            
+                var currentElement = document.getElementById(imageID);
+
+
+                //which is the current address of the image?
+                if(currentElement.src==newImage){
+                    
+                //this is jquery 
+                //attr() = it sets a new value to a tag property.
+                // ex: $("#headerDiv").attr("width","500px");
+                $("#" + imageID).attr("src",originalImage);
+                $("#" + imageID).attr("width","200px");
+                $("body").css("background-color","white");
+
+            }
+                else{
+                    $("#" + imageID).attr("src",newImage);
+                    $("#" + imageID).attr("width","700px");
+                    $("body").css("background-color","purple");
+            }
+
+                
+            }
+        
+        
+        </script>
+
+
+            <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+    </body>
+
+</html>

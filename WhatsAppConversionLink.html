@@ -1,0 +1,87 @@
+<html>
+
+    <head>
+         <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1053247524033816"
+     crossorigin="anonymous"></script>
+
+
+        <title>WhatsApp Converter</title>
+    
+    </head>
+
+    <body>
+
+        
+
+        <form class="row g-3 p-5 flex-container text-center">
+            <h1>Create your free link here</h1>
+
+            <div class="col-md-12 ">
+                
+                    <p class="form-label">Type your WhatsApp phone number</p>
+                    <input class="form-control" id="PhoneNumberWhatsAppID" type="number" placeholder="ex. +44 7482738283"   pattern="[789][0-9]{9}" >
+                
+            </div>
+
+            <div class="col-md-12">
+                <p class="form-label">Type your Custom Message</p>
+                <textarea id="customMessage"  class="form-control"  type="text" >
+                </textarea>
+            </div>
+
+            <div class="col-md-12">
+                <input id="GenerateButtonID" type="button" value="Generate my WhatsApp link"
+                    onclick="ConvertToWhatsApp()">
+            </div>
+            
+            <div id="LinkShow" style="display:none">
+                
+            </div>
+      
+        </form>
+    
+        <script>
+           function ConvertToWhatsApp () 
+           {
+                    const phoneNumber = document.getElementById("PhoneNumberWhatsAppID").value;
+                    const customMessage = document.getElementById("customMessage").value;
+                    if( phoneNumber == "" || customMessage == ""){  
+                        alert("Type your number and custom message");
+                        return;
+                    }
+                    
+                    const link = "https://wa.me/"+phoneNumber.trim()+"?text="+customMessage.trim();
+
+                
+
+                    console.log(phoneNumber);
+                    console.log(customMessage);
+                    document.getElementById("LinkShow").innerHTML += link.replaceAll(" ","");
+                    document.getElementById("LinkShow").style.display="block";
+
+                    alert(link.replaceAll(" ",""));//replaces space for nothing, which removes the spaces
+                    // alert(link.replace("Baptised","p"));
+                    // alert(link);
+
+                    
+                    
+
+            }
+
+        </script>
+
+
+            <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+    </body>
+
+</html>
