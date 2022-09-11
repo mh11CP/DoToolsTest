@@ -1,5 +1,8 @@
 <html>
 
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1053247524033816"
+    crossorigin="anonymous"></script>
+
     <head>
          <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -39,15 +42,22 @@
         <script>
 
             function show(divIdToHide){
-                var currentElement = document.getElementById(divIdToHide);
-                if(currentElement.style.display=='none'){
-                    //then show the DIV
-                    currentElement.style.display='block';
-                }
+                // var currentElement = document.getElementById(divIdToHide);
 
-                else{
-                    currentElement.style.display='none';
-                }
+                // if(currentElement.style.display=='none'){
+                //     //then show the DIV
+                //     currentElement.style.display='block';
+                // }
+
+                // else{
+                //     currentElement.style.display='none';
+                // }
+
+                $("#"+divIdToHide).toggle("fast");
+                //examples below
+                // $("#"+divIdToHide).hide("fast");
+                // $("#"+divIdToHide).show("fast");
+
             }
 
 
