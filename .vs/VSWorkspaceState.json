@@ -3,7 +3,13 @@
     "",
     "\\.github",
     "\\.github\\workflows",
-    "\\APICalls"
+    "\\APICalls",
+    "\\APICalls\\images",
+    "\\Shade Lite Files",
+    "\\Shade Lite Files\\Free Landings",
+    "\\Shade Lite Files\\Free Landings\\Web Application",
+    "\\__MACOSX"
   ],
+  "SelectedNode": "\\Shade Lite Files\\License.txt",
   "PreviewInSolutionExplorer": false
 }
