@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script>
+
+    function showCustomizedJoke(response){
+        document.getElementById("mybody").innerHTML = response.value;
+        let answer = prompt("do you want more jokes?");
+
+        if(answer=="yes"){
+            alert("thanks but you didn't pay for my jokes");
+        }
+
+        else{
+            alert("okay boss, no more jokes for you jerk!");
+        }
+    }
+
+        fetch('https://api.chucknorris.io/jokes/random')
+            //this line filter just the jokes info NOT the http response
+            //convert to json
+            .then((response) => response.json())
+            .then((response) => 
+            ///here you communcate to your html
+            //ready to put in log
+            showCustomizedJoke(response)
+            );
+    </script>
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+</head>
+<body>
+    <div id="mybody" style="border:solid gray 1px">
+        
+    </div>
+</body>
+</html>
