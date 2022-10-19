@@ -9,8 +9,12 @@
 
   <script>
 
+    callJokeRandomly01();
+    callJokeRandomly02();
+
+
   function showCustomizedJoke(response){
-      document.getElementById("CategoryJoke").innerHTML = response.value;
+      document.getElementById("CategoryJoke").innerHTML = "<h3>"+response.value+"</h3>";
       // let answer = prompt("do you want more jokes?");
 
       // if(answer=="yes"){
@@ -22,7 +26,9 @@
       // }
   }
 
-  function callJoke(){
+
+
+  function callJokeRandomly01(){
      fetch('https://api.chucknorris.io/jokes/random')
           //this line filter just the jokes info NOT the http response
           //convert to json
@@ -30,7 +36,19 @@
           .then((response) => 
           ///here you communcate to your html
           //ready to put in log
-          showCustomizedJoke(response)
+          document.getElementById("random01").innerHTML = response.value
+          ); 
+  }
+
+  function callJokeRandomly02(){
+     fetch('https://api.chucknorris.io/jokes/random')
+          //this line filter just the jokes info NOT the http response
+          //convert to json
+          .then((response) => response.json())
+          .then((response) => 
+          ///here you communcate to your html
+          //ready to put in log
+          document.getElementById("random02").innerHTML = response.value
           ); 
   }
 
@@ -55,7 +73,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Software 2.0 </title>
+  <meta name="description" content="Chuck Norris">
+  <title>105 Chuck Norris Jokes To Tell Fernando</title>
   <link rel="shortcut icon" href="image/favicon.png" type="image/x-icon">
   <!-- Bootstrap , fonts & icons  -->
   <link rel="stylesheet" href="./css/bootstrap.css">
@@ -109,10 +128,10 @@
                 <div class="mobile-menu-close">&times;</div>
               </div>
               <ul class="site-menu-main">
-                <li class="nav-item nav-item-has-children">
+                <!-- <li class="nav-item nav-item-has-children">
                   <a href="#" class="nav-link-item drop-trigger">Dropdowns <i class="fas fa-angle-down"></i>
-                  </a>
-                  <ul class="sub-menu" id="submenu-9">
+                  </a> -->
+                  <!-- <ul class="sub-menu" id="submenu-9">
                     <li class="sub-menu--item">
                       <a href="#">Dropdown 01</a>
                     </li>
@@ -125,23 +144,32 @@
                     <li class="sub-menu--item">
                       <a href="#">Dropdown 04</a>
                     </li>
-                  </ul>
+                  </ul> -->
+                <!-- </li> -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link-item">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link-item">Blog</a>
+                  <a href="#" class="nav-link-item">Random Joke</a>
                 </li>
                 <li class="nav-item">
+                  <a href="#" class="nav-link-item">Chuck Norris Game</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link-item">Categorized Jokes</a>
+                </li>
+                <!-- <li class="nav-item">
                   <a href="https://uxtheme.net/product-support/" class="nav-link-item">Support</a>
-                </li>
+                </li> -->
               </ul>
             </nav>
           </div>
           <div class="header-btns  header-btn-l11 ms-auto d-none d-xs-inline-flex align-items-center">
-            <a class="btn log-in-btn focus-reset" href="#">
+            <!-- <a class="btn log-in-btn focus-reset" href="#">
               Log in
-            </a>
+            </a> -->
             <a class="download-trail-btn btn focus-reset" href="#">
-              Download trail
+              Talk to us
             </a>
           </div>
           <!-- mobile menu trigger -->
@@ -161,11 +189,10 @@
             <div class="content">
               <h1>Chuck Norris <br class="d-none d-md-block"> Jokes:</h1>
               <div class="row banner-l-11-bottom-content">
-                <div class="col-lg-8 col-md-8 col-sm-10">
+                <div class="col-lg-12 col-md-11 col-sm-10">
                   <p class="position-relative banner-main-content-l-11">Please,
                      choose your category:<br>
-
-                    <select id="choiceCategory" >
+                    <select onchange="callJokeByCategory()" id="choiceCategory" class="form-select" aria-label="Default select example">
                         <option>animal</option>
                         <option>career</option>
                         <option>celebrity</option>
@@ -184,20 +211,20 @@
                         <option>travel</option>
                     </select>
                 <br>
-
+                 
                 <div id="CategoryJoke" style="border:solid gray 0px">
         
                 </div>
-               
+                 
                     <span class="line-left-content"></span>
                   </p>
                 </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-6 flex-y-center ">
+                <!-- <div class="col-lg-4 col-md-4 col-sm-6 flex-y-center ">
                   <a onclick="javascript:callJokeByCategory()" class="btn l-11-hero-btn" href="#">Search</a>
-                </div>
+                </div> -->
 
-                <div class="col-xl-3 col-lg-4">
+                <!-- <div class="col-xl-3 col-lg-4">
                   <div class="compitable-text border-top d-inline-block">
                     <p>Compitable with:</p>
                     <div class="compatible-icon flex-y-center img-grayscale">
@@ -206,7 +233,7 @@
                       <a href="#" class="font-size-13"><img src="./image/l2/penguine.svg" alt=""></a>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -223,7 +250,7 @@
       </div>
     </div>
     <!-- Brand-area -->
-    <div class="brand-area-l11">
+    <!-- <div class="brand-area-l11">
       <div class="container">
         <div class="row img-grayscale">
           <div class="col-lg-12" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
@@ -247,9 +274,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Content Area-1 -->
-    <div class="content-area-l-11-1">
+    <!-- <div class="content-area-l-11-1">
       <div class="container">
         <div class="row align-items-center justify-content-lg-start justify-content-center">
           <div class="col-xl-6 col-md-5 col-md-10" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
@@ -268,7 +295,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Content Area-2  -->
     <div class="content-area-l-11-2">
       <div class="container">
@@ -276,10 +303,11 @@
           <div class="col-xxl-4 col-xl-5 col-lg-6 col-md-9 order-lg-1 order-1" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
             <div class="content section-heading-5">
               <h2>
-                Completely Free for Everyone.
+                Chuck Norris Random Jokes
               </h2>
               <div class="d-flex content-l-11-3-card">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="27" viewBox="0 0 32 27">
+                <img style="" src="https://img.icons8.com/plasticine/100/000000/chuck-norris.png"/>
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="32" height="27" viewBox="0 0 32 27"> -->
                   <g>
                     <g>
                       <g>
@@ -294,15 +322,16 @@
                   </g>
                 </svg>
                 <div class="content-body">
-                  <h5>Easy setup process</h5>
-                  <p>Editing and customizing Essential Landing is easy and fast.</p>
+                  <!-- <h5>Easy setup process</h5> -->
+                  <p id="random01"></p>
                 </div>
               </div>
               <div class="d-flex content-l-11-3-card">
-                <img src="image/l2/settings.svg" alt="icon">
+                <img src="https://img.icons8.com/carbon-copy/100/000000/chuck-norris.png"/>
+                <!-- <img src="image/l2/settings.svg" alt="icon"> -->
                 <div class="content-body">
-                  <h5>Built for real users</h5>
-                  <p>Editing and customizing Essential Landing is easy and fast.</p>
+                  <!-- <h5>Built for real users</h5> -->
+                  <p id="random02"></p>
                 </div>
               </div>
             </div>
@@ -519,7 +548,7 @@
       </div>
     </div>
     <!-- Newsletter-area start -->
-    <div class="newsletter-l-11">
+    <!-- <div class="newsletter-l-11">
       <div class="container">
         <div class="row justify-content-center news-l-11-main-bg position-relative">
           <div class="news-l-11-second-bg w-100 h-100"></div>
@@ -550,11 +579,11 @@
           <div class="col-md-6">
             <div class="footer-widget-l-11">
               <ul class="pl-0 list-unstyled d-flex flex-wrap justify-content-center align-items-end ">
-                <li class="d-flex"><a href="">About</a></li>
-                <li class="d-flex"><a href="">Features</a></li>
-                <li class="d-flex"><a href="">Works</a></li>
-                <li class="d-flex"><a href="">Career</a></li>
-                <li class="d-flex"><a href="">Contact</a></li>
+                <li class="d-flex"><a href="">Home</a></li>
+                <li class="d-flex"><a href="">Random Joke</a></li>
+                <li class="d-flex"><a href="">Chuck Norris Game</a></li>
+                <li class="d-flex"><a href="">Categorized Jokes</a></li>
+                <!-- <li class="d-flex"><a href="">Contact</a></li> -->
               </ul>
             </div>
           </div>
@@ -578,13 +607,13 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="text-center">
-              <p>© Grayic 2021 All right reserved. </p>
+              <p>© DoTools.io 2022 All right reserved. </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </div> 
   <!-- Vendor Scripts -->
   <script src="js/vendor.min.js"></script>
   <!-- Plugin's Scripts -->
