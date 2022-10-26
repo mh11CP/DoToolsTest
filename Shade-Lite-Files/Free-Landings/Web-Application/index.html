@@ -11,6 +11,12 @@
 
     callJokeRandomly01();
     callJokeRandomly02();
+    callJokeByCategories('animal', 'animalId');
+    callJokeByCategories('career', 'careerId');
+    callJokeByCategories('movie', 'movieId');
+    callJokeByCategories('money', 'moneyId');
+    callJokeByCategories('science', 'scienceId');
+    callJokeByCategories('history', 'historyId');
 
 
   function showCustomizedJoke(response){
@@ -60,6 +66,21 @@
           .then((response) => 
           
           showCustomizedJoke(response)
+          ); 
+  }
+
+
+  //whereToPutid the ID of the Html element that will receive the joke
+  //26/10/22
+  //Joke Placed inside whereToPutid 
+  function callJokeByCategories(categoryName, whereToPutid){
+      fetch('https://api.chucknorris.io/jokes/random?category'
+       + categoryName)
+          
+          .then((response) => response.json())
+          .then((response) => 
+          
+          document.getElementById(whereToPutid).innerHTML = response.value
           ); 
   }
 
@@ -241,8 +262,10 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-9 order-lg-1 order-0" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
-            <img src="image/l2/laptop-screen.png" alt="" class="w-100 hero-l11-main-image">
+          <div class="col-lg-9 order-lg-1 order-0" data-aos="fade-up" 
+          data-aos-duration="800" data-aos-once="true">
+            <img src="image/l2/laptop-screen.png" alt="" 
+            class="w-100 hero-l11-main-image">
           </div>
         </div>
       </div>
@@ -350,7 +373,7 @@
       </div>
       <div id="chuckNorrisGame"></div>
     </div>
-    <!-- Content Area -->
+    <!-- Content Area 3-->
     
     <div class="content-area-l-11-3 position-relative" >
       <div class="container">
@@ -392,8 +415,7 @@
                   <h2>
                     Categorized Jokes
                   </h2>
-                  <p>We designed and tested prototypes that helped identify pain points in the account
-                    creation process. Together, we shaped the new standard.</p>
+                  <p>Here are random jokes you can see from categories.</p>
                 </div>
               </div>
             </div>
@@ -404,8 +426,8 @@
                     <i class="icon icon-pen-01"></i>
                   </div>
                   <div class="content-body">
-                    <h5>Easy to Use</h5>
-                    <p>Whether it’s a small internal app or a new for millions of customers, our design and
+                    <h5>Animal</h5>
+                    <p  id="animalId">Whether it’s a small internal app or a new for millions of customers, our design and
                       development teams.</p>
                   </div>
                 </div>
@@ -416,8 +438,8 @@
                     <i class="icon icon-layers-3"></i>
                   </div>
                   <div class="content-body">
-                    <h5>300+ Blocks</h5>
-                    <p>Whether it’s a small internal app or a new for millions of customers, our design and
+                    <h5>Career</h5>
+                    <p  id="careerId">Whether it’s a small internal app or a new for millions of customers, our design and
                       development teams.</p>
                   </div>
                 </div>
@@ -428,8 +450,8 @@
                     <i class="icon icon-office"></i>
                   </div>
                   <div class="content-body">
-                    <h5>100% Responsive</h5>
-                    <p>Whether it’s a small internal app or a new for millions of customers, our design and
+                    <h5>Movie</h5>
+                    <p id="movieId">Whether it’s a small internal app or a new for millions of customers, our design and
                       development teams.</p>
                   </div>
                 </div>
@@ -440,8 +462,8 @@
                     <i class="icon icon-book-open-2"></i>
                   </div>
                   <div class="content-body">
-                    <h5>Rich Documentation</h5>
-                    <p>Whether it’s a small internal app or a new for millions of customers, our design and
+                    <h5>Money</h5>
+                    <p id="moneyId">Whether it’s a small internal app or a new for millions of customers, our design and
                       development teams.</p>
                   </div>
                 </div>
@@ -452,8 +474,8 @@
                     <i class="icon icon-pen-01"></i>
                   </div>
                   <div class="content-body">
-                    <h5>50+ Ready Pages</h5>
-                    <p>Whether it’s a small internal app or a new for millions of customers, our design and
+                    <h5>Science</h5>
+                    <p id="scienceId">Whether it’s a small internal app or a new for millions of customers, our design and
                       development teams.</p>
                   </div>
                 </div>
@@ -464,8 +486,8 @@
                     <i class="icon icon-settings-gear-64-2"></i>
                   </div>
                   <div class="content-body">
-                    <h5>Quick Setup</h5>
-                    <p>Whether it’s a small internal app or a new for millions of customers, our design and
+                    <h5>History</h5>
+                    <p id="historyId">Whether it’s a small internal app or a new for millions of customers, our design and
                       development teams.</p>
                   </div>
                 </div>
