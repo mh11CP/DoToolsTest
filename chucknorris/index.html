@@ -3,6 +3,11 @@
 
 <head>
 
+    <!-- Link to the file hosted on your server, -->
+  <link rel="stylesheet" href="dist/css/splide.min.css">
+  <script src="dist/js/splide.min.js"></script>
+ 
+
   <script src="https://code.jquery.com/jquery-3.6.1.min.js" 
   integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" 
   crossorigin="anonymous"></script>
@@ -10,7 +15,12 @@
   <script src="js/JokesRepository.js"></script>
   <script src="js/app.js"></script>
 
-
+  <script>
+    document.addEventListener( 'DOMContentLoaded', function() {
+      var splide = new Splide( '.splide' );
+      splide.mount();
+    } );
+  </script>
 
 
   <meta charset="UTF-8">
@@ -186,8 +196,31 @@
           </div>
           <div class="col-lg-9 order-lg-1 order-0" data-aos="fade-up" 
           data-aos-duration="800" data-aos-once="true">
-            <img src="image/l2/laptop-screen.png" alt="" 
-            class="w-100 hero-l11-main-image">
+            <!-- <img src="image/l2/laptop-screen.png" alt="" 
+            class="w-100 hero-l11-main-image"> -->
+            <section class="splide" aria-label="Splide Basic HTML Example">
+              <div class="splide__track">
+                <ul class="splide__list"> 
+                  <li class="splide__slide"><iframe  width="100%" height="350px" 
+                    src="https://www.youtube.com/embed/ys2MtLX9nzE" title="YouTube 
+                    video player" frameborder="0" allow="accelerometer; autoplay; 
+                    clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe></li>
+                  <li class="splide__slide"><iframe width="100%" height="100%" src="
+                    https://www.youtube.com/embed/WjwzLDhk0E4
+                    " title="YouTube video player" frameborder="0" allow="accelerometer; 
+                    autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe> </li>
+                  <li class="splide__slide"><iframe width="100%" height="100%" src="
+                    https://www.youtube.com/embed/yekYugTmPeQ
+                    " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+                    clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe> </li>
+                 
+                </ul>
+              </div>
+            </section>
+
           </div>
         </div>
       </div>
