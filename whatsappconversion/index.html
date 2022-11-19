@@ -2,11 +2,11 @@
 
     <head>
 
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1053247524033816"
-        crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1053247524033816"
+    crossorigin="anonymous"></script>
 
 
-         <!-- Required meta tags -->
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -32,7 +32,8 @@
                 
                     <p class="form-label">Type your WhatsApp phone number</p>
                     <input class="form-control" id="PhoneNumberWhatsAppID" type="number" placeholder="ex. +44 7482738283"   pattern="[789][0-9]{9}" >
-                
+                    <p >Include country code without + symbol. Eg: If your country 
+                        code is +1 and WhatsApp number is 6501234567, then type 16501234567 above.</p>
             </div>
 
             <div class="col-md-12">
@@ -46,8 +47,15 @@
                     onclick="ConvertToWhatsApp()">
             </div>
             
+            
             <div id="LinkShow" style="display:none">
-                
+                <p>Your WhatsApp Click-To-Chat Link</p>
+                <div class="col-md-12">
+                    <a href="https://api.whatsapp.com/send/?phoneNumber=+phoneNumber+&text=+customMessage+&type=phone_number&app_absent=0"
+                        class="btn btn-outline-dark btn-lg mb-2"
+                        role="button" data-mdb-toggle="button" autocomplete="off"
+                        aria-pressed="true"><div>Open on WhatsApp</div></a></h5>
+                </div>
             </div>
       
         </form>
