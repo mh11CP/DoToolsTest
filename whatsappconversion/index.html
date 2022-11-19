@@ -31,7 +31,7 @@
             <div class="col-md-12 ">
                 
                     <p class="form-label">Type your WhatsApp phone number</p>
-                    <input class="form-control" id="PhoneNumberWhatsAppID" type="number" placeholder="ex. +44 7482738283"   pattern="[789][0-9]{9}" >
+                    <input class="form-control" id="PhoneNumberWhatsAppID" type="text" placeholder="ex. +44 7482738283"   pattern="[789][0-9]{9}" >
                     <p >Include country code without + symbol. Eg: If your country 
                         code is +1 and WhatsApp number is 6501234567, then type 16501234567 above.</p>
             </div>
@@ -43,43 +43,57 @@
             </div>
 
             <div class="col-md-12">
-                <input id="GenerateButtonID" type="button" value="Generate my WhatsApp link"
-                    onclick="ConvertToWhatsApp()">
+                <input id="GenerateButtonID" type="button" value="Generate my WhatsApp link" 
+                    onclick="ConvertToWhatsApp()"  class="btn btn-outline-dark btn-lg mb-2"
+                    role="button" data-mdb-toggle="button" autocomplete="off"
+                    aria-pressed="true">
             </div>
             
             
             <div id="LinkShow" style="display:none">
-                <p>Your WhatsApp Click-To-Chat Link</p>
+               
+            </div>
+
+
+             <!-- <p>Your WhatsApp Click-To-Chat Link</p>
                 <div class="col-md-12">
                     <a href="https://api.whatsapp.com/send/?phoneNumber=+phoneNumber+&text=+customMessage+&type=phone_number&app_absent=0"
                         class="btn btn-outline-dark btn-lg mb-2"
                         role="button" data-mdb-toggle="button" autocomplete="off"
                         aria-pressed="true"><div>Open on WhatsApp</div></a></h5>
-                </div>
-            </div>
+                </div> -->
       
         </form>
     
         <script>
            function ConvertToWhatsApp () 
            {
+                    //cleans code
+                    document.getElementById("LinkShow").innerHTML="";
+
                     const phoneNumber = document.getElementById("PhoneNumberWhatsAppID").value;
                     const customMessage = document.getElementById("customMessage").value;
+
+                    // check if empty and return out of function end function
                     if( phoneNumber == "" || customMessage == ""){  
                         alert("Type your number and custom message");
                         return;
                     }
                     
+                    //build link whatsapp with details
                     const link = "https://wa.me/"+phoneNumber.trim()+"?text="+customMessage.trim();
 
                 
-
-                    console.log(phoneNumber);
-                    console.log(customMessage);
                     document.getElementById("LinkShow").innerHTML += link.replaceAll(" ","");
                     document.getElementById("LinkShow").style.display="block";
 
-                    alert(link.replaceAll(" ",""));//replaces space for nothing, which removes the spaces
+                    
+
+                    
+                    
+                    // alert(link.replaceAll(" ",""));
+                    
+                    //replaces space for nothing, which removes the spaces
                     // alert(link.replace("Baptised","p"));
                     // alert(link);
 
