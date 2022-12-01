@@ -4,6 +4,9 @@
 const jokeModel = new JokesRepository();
 
 
+
+
+
 jokeModel.callJokeRandomly01();
 jokeModel.callJokeRandomly02();
 jokeModel.callJokeByCategories('animal', 'animalId');
