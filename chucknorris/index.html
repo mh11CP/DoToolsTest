@@ -15,7 +15,14 @@
   <script src="js/JokesRepository.js"></script>
   <script src="js/app.js"></script>
   
-
+  <style>
+    .row .game div{
+      background-color: #192f48;
+      height: 110px;
+      width: 110px;
+      margin: 1px 1px 1px 1px;
+    }
+  </style>
   
 
   <script>
@@ -352,31 +359,31 @@
               
             <div class="content section-heading-5">
               <h2>Chuck Norris Game</h2>
-              <div class="row">
-                <div class="col-3" id="one">
+              <div class="row game">
+                <div class="col-3" onclick="objIndex.showImage(this.id)" id="one">
                   Column
                 </div>
-                <div class="col-3" id="two">
+                <div class="col-3" onclick="objIndex.showImage(this.id)" id="two">
                   Column
                 </div>
-                <div class="col-3" id="three">
+                <div class="col-3" onclick="objIndex.showImage(this.id)" id="three">
                   Column
                 </div>
-                <div class="col-3" id="four">
+                <div class="col-3" onclick="objIndex.showImage(this.id)" id="four">
                   Column
                 </div>
             </div>
-            <div class="row">
-              <div class="col-3" id="five">
+            <div class="row game">
+              <div class="col-3" onclick="objIndex.showImage(this.id)" id="five">
                 Column
               </div>
-              <div class="col-3" id="six">
+              <div class="col-3" onclick="objIndex.showImage(this.id)" id="six">
                 Column
               </div>
-              <div class="col-3" id="seven">
+              <div class="col-3" onclick="objIndex.showImage(this.id)" id="seven">
                 Column
               </div>
-              <div class="col-3" id="eight">
+              <div class="col-3" onclick="objIndex.showImage(this.id)" id="eight">
                 Column
               </div>
           </div>
@@ -651,6 +658,7 @@
   <script src="js/custom.js"></script>
 
   <script src="js/GameImgRepository.js"></script>
+  
 </body>
 
 </html>
