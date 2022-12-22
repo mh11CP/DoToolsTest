@@ -2,15 +2,17 @@
 class GameImgRepository{
 
     constructor(){
-        this.clickedImage = "";
+        //array/pist put after = []
+        this.clickedImage = [];
+        this.firstclickedImage = "";
         //randomize here images game
         this.list = [];//array
             //push information to list
             //properties are THIS
+            this.list.push("image/ChuckNorrisGameIMG/suspicous.jpg");
             this.list.push("image/ChuckNorrisGameIMG/sad.png");
+            this.list.push("image/ChuckNorrisGameIMG/suspicous.jpg");
             this.list.push("image/ChuckNorrisGameIMG/happy.jpeg");
-            this.list.push("image/ChuckNorrisGameIMG/suspicous.jpg");
-            this.list.push("image/ChuckNorrisGameIMG/suspicous.jpg");
             this.list.push("image/ChuckNorrisGameIMG/angry.jpeg");
             this.list.push("image/ChuckNorrisGameIMG/sly.jpeg");
             this.list.push("image/ChuckNorrisGameIMG/depressed.jpeg");
@@ -22,7 +24,7 @@ class GameImgRepository{
 
             // list.shift();//remove the item at the end
             //randomize
-            this.list.sort();
+            // this.list.sort();
 
     }
 
@@ -64,24 +66,55 @@ class GameImgRepository{
             document.getElementById(divId).style.backgroundImage = "url("+this.list[7]+")";
         }
 
-        return;
+        
 
 
-        if(this.clickedImage==""){
+            //.length<1 if less then 1 not clicked
+            //saves first image
+        if(this.firstclickedImage==""){
             //then first time clicked
             //in this moment images already placed logically speaking.
-            this.clickedImage = document.getElementById(divId).style.background;
+           
+            this.firstclickedImage = document.getElementById(divId).style.backgroundImage;
             //return = go out of this method (showimage)
+            
             return;
         }
 
+        this.clickedImage.push(document.getElementById(divId).style.backgroundImage);
         //variable to get the url of img that he is now
-        const currentImgUrl = document.getElementById(divId).style.background;
+        // const currentImgUrl = document.getElementById(divId).style.backgroundImage;
+          
+        //iterate list         
+        // Const create variable 
+        //the item gets thrown away after each loop if else, if stops.
+        for(const item of this.clickedImage){
+            //this alert be shown for every tiem of the list thanks to the new FOR with OF!
+            if(item==this.firstclickedImage){
+                //compares the ITEM with clickimage
+                alert("You Win!");
+                this.clickedImage.length = 0;
+                this.firstclickedImage ="";
+                //Jquery here is deletes background image and colour below
+                // $('.row .game div').css({backgroundImage: ''});
+                $('.row .game div').css('background-image','');
+                // $('.row .game div').css({backgroundColor: '#192f48'});
+                $('.row .game div').css('background-colour', '#192f48');
+                return;
+            }
+            else{
+                // alert("you did not win, keep going!");
+            }
 
-            //if this imaget he same of the one he clicked?
+        }
+
+        return;
+    
+            //is this image he same of the one he clicked?
                 if(currentImgUrl == this.clickedImage){
                     //show the image and tell him his write
-
+                    alert(this.clickedImage);                 
+                    alert("your're righht m8!!");
                     
                     
                 }
